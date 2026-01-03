@@ -1,3 +1,9 @@
-exports.indexGet = async(req,res) => {
-    res.render("index");
-}
+exports.indexGet = async (req, res) => {
+    const links = [
+        {
+            href: "/magicthegathering",
+            text: "Magic: The Gathering"
+        }
+    ]
+    res.render("index", { title: "Home", links: links});
+};

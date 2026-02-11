@@ -11,6 +11,10 @@ const links = [
   },
 ];
 
+async function fetchCard() {
+  const url = "https://api.scryfall.com";
+}
+
 exports.getMTG = async (req, res) => {
   const collection = await db.getMTG();
   res.render("inventory", {
@@ -40,4 +44,24 @@ exports.createMTGPost = async (req, res) => {
 exports.cardGet = async (req, res) => {
   const card = await db.getCard(req.params.id);
   res.render("card", { card: card });
+};
+
+exports.updateGet = async (req, res) => {
+  const card = await db.getCard(req.params.id);
+  res.render("update", { card: card });
+};
+exports.updatePost = async (req, res) => {
+  db.updateCard(
+    req.body.card_name,
+    req.body.card_cost,
+    req.body.card_rarity,
+    req.body.card_quantity,
+    req.body.card_id,
+  );
+  res.redirect("/MTG");
+};
+
+exports.deletePost = async (req, res) => {
+  db.deleteCard(req.params.id);
+  res.redirect("/MTG");
 };

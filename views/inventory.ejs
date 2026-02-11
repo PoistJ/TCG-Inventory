@@ -9,6 +9,7 @@
     <div>
         <% collection.forEach((card) => { %>
             <a href="/MTG/<%= card.card_id %>"><%= card.card_name %> <%= card.cost %> <%= card.rarity%> <%= card.quantity %></a>
+            <br>
         <% }); %>
     </div>
 

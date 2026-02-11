@@ -7,5 +7,8 @@ mtgRouter.get("/", mtgController.getMTG);
 mtgRouter.get("/new", mtgController.createMTGGet);
 mtgRouter.post("/new", mtgController.createMTGPost);
 mtgRouter.get("/:id", mtgController.cardGet);
+mtgRouter.get("/:id/update", mtgController.updateGet);
+mtgRouter.post("/:id/update", mtgController.updatePost);
+mtgRouter.post("/:id/delete", mtgController.deletePost);
 
 module.exports = mtgRouter;

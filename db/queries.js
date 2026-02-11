@@ -19,8 +19,21 @@ async function getCard(id) {
   return rows[0];
 }
 
+async function updateCard(card_name, cost, rarity, quantity, card_id) {
+  await pool.query(
+    "UPDATE mtg SET card_name = $1, cost = $2, rarity = $3, quantity = $4 WHERE card_id = $5",
+    [card_name, cost, rarity, quantity, card_id],
+  );
+}
+
+async function deleteCard(card_id) {
+  await pool.query("DELETE FROM mtg WHERE card_id = $1", [card_id]);
+}
+
 module.exports = {
   getMTG,
   insertMTG,
   getCard,
+  updateCard,
+  deleteCard
 };

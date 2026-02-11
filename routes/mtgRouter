@@ -6,5 +6,6 @@ const mtgRouter = Router();
 mtgRouter.get("/", mtgController.getMTG);
 mtgRouter.get("/new", mtgController.createMTGGet);
 mtgRouter.post("/new", mtgController.createMTGPost);
+mtgRouter.get("/:id", mtgController.cardGet);
 
 module.exports = mtgRouter;

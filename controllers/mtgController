@@ -36,3 +36,8 @@ exports.createMTGPost = async (req, res) => {
   );
   res.redirect("/MTG");
 };
+
+exports.cardGet = async (req, res) => {
+  const card = await db.getCard(req.params.id);
+  res.render("card", { card: card });
+};

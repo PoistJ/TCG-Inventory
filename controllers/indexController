@@ -4,10 +4,6 @@ const links = [
     text: "Magic: The Gathering",
   },
   {
-    href: "/YGO",
-    text: "Yu-Gi-Oh",
-  },
-  {
     href: "/Nikke",
     text: "Nikke: Union Arena",
   },

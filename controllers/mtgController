@@ -1,0 +1,38 @@
+const db = require("../db/queries");
+
+const links = [
+  {
+    href: "/",
+    text: "Home",
+  },
+  {
+    href: "/MTG/new",
+    text: "Add card",
+  },
+];
+
+exports.getMTG = async (req, res) => {
+  const collection = await db.getMTG();
+  res.render("inventory", {
+    title: "Magic: The Gathering Inventory",
+    links: links,
+    collection: collection,
+  });
+};
+
+exports.createMTGGet = async (req, res) => {
+  res.render("addCardForm", {
+    title: "Add Card",
+    links: { href: "/MTG", text: "Back" },
+  });
+};
+
+exports.createMTGPost = async (req, res) => {
+  db.insertMTG(
+    req.body.card_name,
+    req.body.card_cost,
+    req.body.card_rarity,
+    req.body.card_quantity,
+  );
+  res.redirect("/MTG");
+};

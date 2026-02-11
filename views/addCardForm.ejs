@@ -1,0 +1,27 @@
+<%- include('sidebar', {links: links}) %>
+
+<h1><%= title %></h1>
+
+<form method="POST" action="/MTG/new">
+    <p>
+        <label for="cardName">Card Name:</label>
+        <input name="card_name" id="cardName">
+    </p>
+
+    <p>
+        <label for="cost">Cost:</label>
+        <input name="card_cost" id="cost">
+    </p>
+
+    <p>
+        <label for="rarity">Rarity:</label>
+        <input name="card_rarity" id="rarity">
+    </p>
+
+    <p>
+        <label for="quantity">Quantity:</label>
+        <input name="card_quantity" id="quantity">
+    </p>
+
+    <input type="submit">
+</form>

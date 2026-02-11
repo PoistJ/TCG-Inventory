@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MTG Inventory</title>
+</head>
+<body>
+    <%- include('sidebar', {links: links}) %>
+    <h1><%= title %></h1>
+    <div>
+        <% collection.forEach((card) => { %>
+            <p><%= card.card_name %> <%= card.cost %> <%= card.rarity%> <%= card.quantity %></p>
+        <% }); %>
+    </div>
+
+</body>
+</html>

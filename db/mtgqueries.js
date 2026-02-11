@@ -1,11 +1,11 @@
 const pool = require("./pool");
 
-async function getMTG() {
+async function getInventory() {
   const { rows } = await pool.query("SELECT * FROM mtg");
   return rows;
 }
 
-async function insertMTG(card_name, cost, rarity, quantity) {
+async function insertCard(card_name, cost, rarity, quantity) {
   await pool.query(
     "INSERT INTO mtg (card_name, cost, rarity, quantity) VALUES ($1, $2, $3, $4)",
     [card_name, cost, rarity, quantity],
@@ -31,9 +31,9 @@ async function deleteCard(card_id) {
 }
 
 module.exports = {
-  getMTG,
-  insertMTG,
+  getInventory,
+  insertCard,
   getCard,
   updateCard,
-  deleteCard
+  deleteCard,
 };

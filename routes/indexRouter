@@ -1,11 +1,13 @@
 const { Router } = require("express");
 const indexController = require("../controllers/indexController");
 const mtgRouter = require("../routes/mtgRouter");
+const nikkeRouter = require("../routes/nikkeRouter");
 
 const indexRouter = Router();
 
 indexRouter.get("/", indexController.indexGet);
 
 indexRouter.use("/MTG", mtgRouter);
+indexRouter.use("/nikke", nikkeRouter);
 
 module.exports = indexRouter;

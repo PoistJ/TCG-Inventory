@@ -26,10 +26,9 @@
                 <p>
                     <label for="rarity">Rarity:</label>
                     <select name="card_rarity" id="rarity">
-                        <option value="common">Common</option>
-                        <option value="uncommon">Uncommon</option>
-                        <option value="rare">Rare</option>
-                        <option value="mythic">Mythic</option>
+                        <% rarity.forEach((tier) => { %>
+                            <option value="<%= tier %>"><%= tier %></option>
+                        <% }); %>
                     </select>
                 </p>
 

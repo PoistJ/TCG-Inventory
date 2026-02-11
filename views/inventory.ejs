@@ -17,7 +17,7 @@
                 </tr>
                 <% collection.forEach((card) => { %>
                     <tr>
-                        <td><a href="/MTG/<%= card.card_id %>"><%= card.card_name %></a></td>
+                        <td><a href="/<%= tcg %>/<%= card.card_id %>"><%= card.card_name %></a></td>
                         <td>$<%= card.cost %></td>
                         <td><%= card.rarity %></td>
                         <td><%= card.quantity %></td>

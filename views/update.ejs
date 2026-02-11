@@ -12,7 +12,7 @@
     <div class="bodyDiv">
       <h1><%= card.card_name %></h1>
       <div class="inventoryDiv">
-        <form action="/MTG/<%= card.card_id %>/update" method="POST">
+        <form action="/<%= tcg %>/<%= card.card_id %>/update" method="POST">
           <input
             type="number"
             name="card_id"

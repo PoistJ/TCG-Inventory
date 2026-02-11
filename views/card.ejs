@@ -1,18 +1,33 @@
-<h2><%= card.card_name %></h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= card.card_name %></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
 
-<p><%= card.cost %></p>
-<p><%= card.rarity %></p>
-<p><%= card.quantity %></p>
+  <body>
+    <%- include('sidebar', {links: links}) %>
+    <div>
+      <h1><%= card.card_name %></h1>
+      <div class="inventoryDiv">
+        <p>Cost: <%= card.cost %></p>
+        <p>Rarity: <%= card.rarity %></p>
+        <p>Quantity: <%= card.quantity %></p>
 
-<form method="GET" action="/MTG/<%= card.card_id %>/update">
-  <button type="submit">Update</button>
-</form>
-<form method="POST" action="/MTG/<%= card.card_id %>/delete">
-  <button
-    type="submit"
-    onclick="return confirm('Are you sure you want to delete this?');"
-  >
-    Delete
-  </button>
-</form>
-<a href="/MTG">Back</a>
+        <form method="GET" action="/MTG/<%= card.card_id %>/update">
+          <button type="submit">Update</button>
+        </form>
+        <form method="POST" action="/MTG/<%= card.card_id %>/delete">
+          <button
+            type="submit"
+            onclick="return confirm('Are you sure you want to delete this?');"
+          >
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

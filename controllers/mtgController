@@ -7,9 +7,11 @@ const links = [
   },
   {
     href: "/MTG/new",
-    text: "Add card",
+    text: "Add Card",
   },
 ];
+
+const dbHeaders = ["Card", "Cost", "Rarity", "Quantity"];
 
 async function fetchCard() {
   const url = "https://api.scryfall.com";
@@ -21,13 +23,14 @@ exports.getMTG = async (req, res) => {
     title: "Magic: The Gathering Inventory",
     links: links,
     collection: collection,
+    headers: dbHeaders,
   });
 };
 
 exports.createMTGGet = async (req, res) => {
   res.render("addCardForm", {
     title: "Add Card",
-    links: { href: "/MTG", text: "Back" },
+    links: [{ href: "/MTG", text: "Back" }],
   });
 };
 
@@ -43,12 +46,18 @@ exports.createMTGPost = async (req, res) => {
 
 exports.cardGet = async (req, res) => {
   const card = await db.getCard(req.params.id);
-  res.render("card", { card: card });
+  res.render("card", {
+    card: card,
+    links: [{ href: "/MTG", text: "Back" }],
+  });
 };
 
 exports.updateGet = async (req, res) => {
   const card = await db.getCard(req.params.id);
-  res.render("update", { card: card });
+  res.render("update", {
+    card: card,
+    links: [{ href: `/MTG/${req.params.id}`, text: "Back" }],
+  });
 };
 exports.updatePost = async (req, res) => {
   db.updateCard(

@@ -2,16 +2,29 @@
 <html lang="en">
 <head>
     <title>MTG Inventory</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <%- include('sidebar', {links: links}) %>
-    <h1><%= title %></h1>
-    <div>
-        <% collection.forEach((card) => { %>
-            <a href="/MTG/<%= card.card_id %>"><%= card.card_name %> <%= card.cost %> <%= card.rarity%> <%= card.quantity %></a>
-            <br>
-        <% }); %>
+    <div class="bodyDiv">
+        <h1><%= title %></h1>
+        <div class="inventoryDiv">
+            <table>
+                <tr>
+                <% headers.forEach((header) => { %>
+                    <th><%= header %></th>
+                <% }); %>
+                </tr>
+                <% collection.forEach((card) => { %>
+                    <tr>
+                        <td><a href="/MTG/<%= card.card_id %>"><%= card.card_name %></a></td>
+                        <td>$<%= card.cost %></td>
+                        <td><%= card.rarity %></td>
+                        <td><%= card.quantity %></td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
     </div>
-
 </body>
 </html>

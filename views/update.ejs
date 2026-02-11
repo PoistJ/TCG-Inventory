@@ -1,18 +1,41 @@
-<h2><%= card.card_name %></h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update <%= card.card_name %></title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
 
-<form action="/MTG/<%= card.card_id %>/update" method="POST">
-  <input type="number" name="card_id" value="<%= card.card_id %>" readonly />
-  <input type="text" name="card_name" value="<%= card.card_name %>" />
-  <input type="text" name="card_cost" value="<%= card.cost %>" />
-  <select name="card_rarity" value="<%= card.rarity %>">
-    <option value="common">Common</option>
-    <option value="uncommon">Uncommon</option>
-    <option value="rare">Rare</option>
-    <option value="mythic">Mythic</option>
-  </select>
-  <input type="number" name="card_quantity" value="<%= card.quantity %>" />
-
-  <input type="submit" />
-</form>
-
-<a href="/MTG/<%= card.card_id %>">Back</a>
+  <body>
+    <%- include('sidebar', { links: links }) %>
+    <div class="bodyDiv">
+      <h1><%= card.card_name %></h1>
+      <div class="inventoryDiv">
+        <form action="/MTG/<%= card.card_id %>/update" method="POST">
+          <input
+            type="number"
+            name="card_id"
+            value="<%= card.card_id %>"
+            readonly
+          />
+          <br>
+          <input type="text" name="card_name" value="<%= card.card_name %>" />
+          <br>
+          <input type="text" name="card_cost" value="<%= card.cost %>" />
+          <br>
+          <select name="card_rarity" value="<%= card.rarity %>">
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="mythic">Mythic</option>
+          </select>
+          <br>
+          <input type="number" name="card_quantity" value="<%= card.quantity %>" />
+          <br>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

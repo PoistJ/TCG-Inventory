@@ -14,7 +14,7 @@ const links = [
 ];
 
 exports.indexGet = async (req, res) => {
-  res.render("index", { title: "Home", links: links });
+  res.render("index", { title: "TCG Inventory Management", links: links });
 };
 
 exports.addCardGet = async (req, res) => {

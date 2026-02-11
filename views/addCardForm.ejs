@@ -1,32 +1,46 @@
-<%- include('sidebar', {links: links}) %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Card to Inventory</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
 
-<h1><%= title %></h1>
+<body>
+    <%- include('sidebar', {links: links}) %>
+    <div class="bodyDiv">
+        <h1><%= title %></h1>
+            <div class="inventoryDiv">
+            <form method="POST" action="/MTG/new">
+                <p>
+                    <label for="cardName">Card Name:</label>
+                    <input name="card_name" id="cardName">
+                </p>
 
-<form method="POST" action="/MTG/new">
-    <p>
-        <label for="cardName">Card Name:</label>
-        <input name="card_name" id="cardName">
-    </p>
+                <p>
+                    <label for="cost">Cost:</label>
+                    <input name="card_cost" id="cost">
+                </p>
 
-    <p>
-        <label for="cost">Cost:</label>
-        <input name="card_cost" id="cost">
-    </p>
+                <p>
+                    <label for="rarity">Rarity:</label>
+                    <select name="card_rarity" id="rarity">
+                        <option value="common">Common</option>
+                        <option value="uncommon">Uncommon</option>
+                        <option value="rare">Rare</option>
+                        <option value="mythic">Mythic</option>
+                    </select>
+                </p>
 
-    <p>
-        <label for="rarity">Rarity:</label>
-        <select name="card_rarity" id="rarity">
-            <option value="common">Common</option>
-            <option value="uncommon">Uncommon</option>
-            <option value="rare">Rare</option>
-            <option value="mythic">Mythic</option>
-        </select>
-    </p>
+                <p>
+                    <label for="quantity">Quantity:</label>
+                    <input name="card_quantity" id="quantity">
+                </p>
 
-    <p>
-        <label for="quantity">Quantity:</label>
-        <input name="card_quantity" id="quantity">
-    </p>
-
-    <input type="submit">
-</form>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
